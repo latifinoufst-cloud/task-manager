@@ -1,25 +1,24 @@
-function addTask() {
-    let input = document.getElementById("taskInput");
-    let task = input.value;
+body {
+    font-family: Arial;
+    text-align: center;
+    background: #f2f2f2;
+}
 
-    if (task === "") return;
+h1 {
+    color: #333;
+}
 
-    let li = document.createElement("li");
-    li.textContent = task;
+input {
+    padding: 10px;
+    width: 200px;
+}
 
-    li.onclick = function () {
-        li.style.textDecoration = "line-through";
-    };
+button {
+    padding: 10px;
+    cursor: pointer;
+}
 
-    let deleteBtn = document.createElement("button");
-    deleteBtn.textContent = "X";
-
-    deleteBtn.onclick = function () {
-        li.remove();
-    };
-
-    li.appendChild(deleteBtn);
-    document.getElementById("taskList").appendChild(li);
-
-    input.value = "";
+li {
+    margin: 10px;
+    list-style: none;
 }
