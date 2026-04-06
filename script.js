@@ -1,24 +1,25 @@
-body {
-    font-family: Arial;
-    text-align: center;
-    background: #f2f2f2;
-}
+function addTask() {
+    let input = document.getElementById("taskInput");
+    let task = input.value;
 
-h1 {
-    color: #333;
-}
+    if (task === "") return;
 
-input {
-    padding: 10px;
-    width: 200px;
-}
+    let li = document.createElement("li");
+    li.textContent = task;
 
-button {
-    padding: 10px;
-    cursor: pointer;
-}
+    li.onclick = function () {
+        li.style.textDecoration = "line-through";
+    };
 
-li {
-    margin: 10px;
-    list-style: none;
+    let deleteBtn = document.createElement("button");
+    deleteBtn.textContent = "X";
+
+    deleteBtn.onclick = function () {
+        li.remove();
+    };
+
+    li.appendChild(deleteBtn);
+    document.getElementById("taskList").appendChild(li);
+
+    input.value = "";
 }
